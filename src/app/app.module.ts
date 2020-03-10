@@ -49,11 +49,13 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { D3VisualizationComponent } from './d3-visualization/d3-visualization.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardTableComponent,
+    D3VisualizationComponent,
   ],
   imports: [
     BrowserModule,

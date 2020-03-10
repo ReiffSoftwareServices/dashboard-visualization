@@ -25,7 +25,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./dashboard-table.component.css']
 })
 export class DashboardTableComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['anlage', 'montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag'];
   dataSource = ELEMENT_DATA;
   constructor() { }
 

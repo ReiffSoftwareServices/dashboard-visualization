@@ -1,0 +1,6 @@
+<svg [style.height]="svgHeight" [style.width]="svgWidth">
+  <g *ngFor="let d of dataTransformed"
+     (click)="onBubbleSelected(d.value)">
+    <rect [attr.x]="d.x" [attr.y]="d.y" [attr.width]="d.width"  [attr.height]="d.height" [attr.fill]="d.color"></rect>
+  </g>
+</svg>
