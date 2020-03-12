@@ -1,10 +1,11 @@
 
 <svg [style.height]="svgHeight" [style.width]="svgWidth">
   <g>
-    <line [attr.x1]="0" [attr.x2]="svgWidth" [attr.y1]="5" [attr.y2]="5" [attr.stroke]="'grey'"></line>
+    <line [attr.x1]="0" [attr.x2]="svgWidth" [attr.y1]="10" [attr.y2]="10" [attr.stroke]="axe[1].color"></line>
   </g>
   <g *ngFor="let d of axe">
-    <line [attr.x1]="d.x1" [attr.x2]="d.x2" [attr.y1]="d.y1" [attr.y2]="d.y2" [attr.stroke]="'grey'"></line>
+    <text [attr.x]="d.x1" [attr.y]="'7'" [attr.fill]="d.color"> &nbsp; {{d.time}}:00</text>
+    <line [attr.x1]="d.x2" [attr.x2]="d.x2" [attr.y1]="d.y1" [attr.y2]="d.y2" [attr.stroke]="d.color"></line>
   </g>
 
   <g *ngFor="let d of dataTransformed" [attr.transform]="'translate(0,10)'"

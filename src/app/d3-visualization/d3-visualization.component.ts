@@ -14,7 +14,7 @@ export class D3VisualizationComponent implements OnInit {
   svgHeight;
   axe;
   startTime = new Date('2020-01-01T08:00');
-  endTime = new Date('2020-01-01T17:00');
+  endTime = new Date('2020-01-01T18:00');
   hourWidth;
 
   constructor() {
@@ -38,12 +38,13 @@ export class D3VisualizationComponent implements OnInit {
     const lineCoordinates = [];
     let i: number;
     const numberOfHours = this.endTime.getHours() - this.startTime.getHours();
-    for (i = 1; i <= numberOfHours + 1; i++) {
-      const line = {x1: '', x2: '', y1: 0, y2: 0};
+    for (i = 1; i <= numberOfHours + 1; i = i + 2) {
+      const line = {time: 0, x1: '', x2: '', y1: '', y2: '', color: '#bdc3c7'};
+      line.time = this.startTime.getHours() + (i - 1);
       line.x1 = (i - 1) * 100 / numberOfHours + '%';
       line.x2 = (i - 1) * 100 / numberOfHours + '%';
-      line.y1 = 9;
-      line.y2 = 1;
+      line.y1 = 100 + '%';
+      line.y2 = 0 + '%';
       lineCoordinates.push(line);
     }
     return lineCoordinates;

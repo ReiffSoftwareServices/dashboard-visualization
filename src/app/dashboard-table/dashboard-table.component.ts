@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { recordSet } from 'src/app/src/recordSetExample';
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -26,59 +28,11 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./dashboard-table.component.css']
 })
 export class DashboardTableComponent implements OnInit {
+  exampleDataSet = recordSet;
   displayedColumns: string[] = ['anlage', 'montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag'];
   dataSource = ELEMENT_DATA;
-  exampleDataSet;
   constructor() {
-    this.exampleDataSet = [
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T08:00'),
-        bis: new Date('2020-01-01T10:00'),
-        color: '#55efc4'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T10:30'),
-        bis: new Date('2020-01-01T12:00'),
-        color: '#81ecec'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T09:00'),
-        bis: new Date('2020-01-01T17:00'),
-        color: '#74b9ff'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T08:00'),
-        bis: new Date('2020-01-01T10:00'),
-        color: '#a29bfe'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T10:30'),
-        bis: new Date('2020-01-01T12:00'),
-        color: '#ffeaa7'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T09:00'),
-        bis: new Date('2020-01-01T17:00'),
-        color: '#b2bec3'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T08:00'),
-        bis: new Date('2020-01-01T10:00'),
-        color: '#fab1a0'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T10:30'),
-        bis: new Date('2020-01-01T12:00'),
-        color: '#ff7675'
-      },
-      { subanlage: '6.1.2', kolonne: '1',
-        von: new Date('2020-01-01T09:00'),
-        bis: new Date('2020-01-01T17:00'),
-        color: '#fd79a8'
-      },
-    ];
   }
-
   ngOnInit(): void {
   }
 
