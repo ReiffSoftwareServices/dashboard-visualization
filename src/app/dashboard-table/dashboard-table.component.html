@@ -1,39 +1,16 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
+<table mat-table  [dataSource]="dataSource" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-  <ng-container matColumnDef="anlage">
-    <th mat-header-cell *matHeaderCellDef> Anlage                </th>
+  <ng-container matColumnDef="{{displayedColumns[0]}}">
+    <th mat-header-cell *matHeaderCellDef>{{displayedColumns[0] | titlecase}}</th>
     <td mat-cell *matCellDef="let element"> {{element.position}} </td>
   </ng-container>
-
-  <ng-container matColumnDef="montag">
-    <th mat-header-cell *matHeaderCellDef> Montag </th>
-    <td mat-cell *matCellDef="let element"> <app-d3-visualization></app-d3-visualization> </td>
+  <ng-container *ngFor='let columnName of displayedColumns | slice:1;' matColumnDef="{{columnName}}">
+    <th mat-header-cell *matHeaderCellDef>{{columnName | titlecase}}</th>
+    <td mat-cell *matCellDef="let element"> <app-d3-visualization [data]="exampleDataSet"></app-d3-visualization> </td>
   </ng-container>
-
-  <ng-container matColumnDef="dienstag">
-    <th mat-header-cell *matHeaderCellDef> Dienstag </th>
-    <td mat-cell *matCellDef="let element"> <app-d3-visualization></app-d3-visualization> </td>
-  </ng-container>
-
-  <ng-container matColumnDef="mittwoch">
-    <th mat-header-cell *matHeaderCellDef> Mittwoch </th>
-    <td mat-cell *matCellDef="let element"> <app-d3-visualization></app-d3-visualization> </td>
-  </ng-container>
-
-  <ng-container matColumnDef="donnerstag">
-    <th mat-header-cell *matHeaderCellDef> Donnerstag </th>
-    <td mat-cell *matCellDef="let element"> <app-d3-visualization></app-d3-visualization> </td>
-  </ng-container>
-
-  <ng-container matColumnDef="freitag">
-    <th mat-header-cell *matHeaderCellDef> Freitag </th>
-    <td mat-cell *matCellDef="let element"> <app-d3-visualization></app-d3-visualization> </td>
-  </ng-container>
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>

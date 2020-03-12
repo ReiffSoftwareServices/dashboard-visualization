@@ -1,6 +1,14 @@
+
 <svg [style.height]="svgHeight" [style.width]="svgWidth">
-  <g *ngFor="let d of dataTransformed"
-     (click)="onBubbleSelected(d.value)">
+  <g>
+    <line [attr.x1]="0" [attr.x2]="svgWidth" [attr.y1]="5" [attr.y2]="5" [attr.stroke]="'grey'"></line>
+  </g>
+  <g *ngFor="let d of axe">
+    <line [attr.x1]="d.x1" [attr.x2]="d.x2" [attr.y1]="d.y1" [attr.y2]="d.y2" [attr.stroke]="'grey'"></line>
+  </g>
+
+  <g *ngFor="let d of dataTransformed" [attr.transform]="'translate(0,10)'"
+      (click)="onBubbleSelected(d.value)">
     <rect [attr.x]="d.x" [attr.y]="d.y" [attr.width]="d.width"  [attr.height]="d.height" [attr.fill]="d.color"></rect>
   </g>
 </svg>
