@@ -54,7 +54,7 @@ export class D3VisualizationComponent implements OnInit {
 
   getTimeDataAsBarData(timeDataJson) {
 
-    const barHeight = (100 / (timeDataJson.length + 1));
+    const barHeight = (75 / (timeDataJson.length ));
 
     let i;
     const barDataJson = [];
@@ -62,12 +62,15 @@ export class D3VisualizationComponent implements OnInit {
     for (const key in timeDataJson) {
       if (timeDataJson.hasOwnProperty(key)) {
         const element = {color: '', x: '', y: '', height: '', width: '', kolonne: '',
+          yText: '',
           von: new Date('2020-01-01T08:00'),
-          bis: new Date('2020-01-01T08:00'), subanlage: ''};
+          bis: new Date('2020-01-01T08:00'),
+          subanlage: ''};
         element.color = timeDataJson[key].color;
         element.x = this.hourWidth * (timeDataJson[key].von.getHours() - this.startTime.getHours()) + '%';
         element.width = this.hourWidth * (timeDataJson[key].bis.getHours() - timeDataJson[key].von.getHours()) + '%';
         element.y = i * (barHeight) + '%';
+        element.yText = (i + 1) * (barHeight) - 1 + '%';
         element.height = barHeight + '%';
         element.kolonne = timeDataJson[key].kolonne;
         element.von = timeDataJson[key].von;

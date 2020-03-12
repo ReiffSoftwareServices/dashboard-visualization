@@ -9,8 +9,8 @@
   </g>
 
   <g *ngFor="let d of dataTransformed" [attr.transform]="'translate(0,10)'"
-      (click)="onBubbleSelected(d)">
-    <rect matTooltip="Kolonne {{d.kolonne}} von {{d.von.toLocaleTimeString().substr(0,5)}} bis {{d.bis.toLocaleTimeString().substr(0,5)}} auf Teilanlage {{d.subanlage}}" [attr.x]="d.x" [attr.y]="d.y" [attr.width]="d.width"  [attr.height]="d.height" [attr.fill]="d.color"></rect>
-
+      (click)="onBubbleSelected(d)" matTooltip="Kolonne {{d.kolonne}} von {{d.von.toLocaleTimeString().substr(0,5)}} bis {{d.bis.toLocaleTimeString().substr(0,5)}} auf Teilanlage {{d.subanlage}}">
+    <rect [attr.x]="d.x" [attr.y]="d.y" [attr.width]="d.width"  [attr.height]="d.height" [attr.fill]="d.color" ></rect>
+    <text class='rect-label' [attr.x]="d.x" [attr.y]="d.yText" [attr.fill]="axe[1].color" >{{d.subanlage}}</text>
   </g>
 </svg>
