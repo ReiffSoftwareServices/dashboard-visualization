@@ -30,8 +30,10 @@ export class D3VisualizationComponent implements OnInit {
 
   }
 
-  onBubbleSelected(value) {
-    console.log(value);
+  onBubbleSelected(d) {
+    console.log('Kolonne: ' + d.kolonne);
+    console.log('Kolonne: ' + d.von);
+    console.log('Kolonne: ' + d.bis);
   }
 
   getAxe() {
@@ -52,20 +54,25 @@ export class D3VisualizationComponent implements OnInit {
 
   getTimeDataAsBarData(timeDataJson) {
 
-    const barHeight = (100 / (timeDataJson.length));
+    const barHeight = (100 / (timeDataJson.length + 1));
 
     let i;
     const barDataJson = [];
     i = 0;
     for (const key in timeDataJson) {
       if (timeDataJson.hasOwnProperty(key)) {
-        const element = {color: '', x: '', y: '', height: '', width: ''};
-        console.log(key + ' -> ' + timeDataJson[key].color);
+        const element = {color: '', x: '', y: '', height: '', width: '', kolonne: '',
+          von: new Date('2020-01-01T08:00'),
+          bis: new Date('2020-01-01T08:00'), subanlage: ''};
         element.color = timeDataJson[key].color;
         element.x = this.hourWidth * (timeDataJson[key].von.getHours() - this.startTime.getHours()) + '%';
         element.width = this.hourWidth * (timeDataJson[key].bis.getHours() - timeDataJson[key].von.getHours()) + '%';
         element.y = i * (barHeight) + '%';
         element.height = barHeight + '%';
+        element.kolonne = timeDataJson[key].kolonne;
+        element.von = timeDataJson[key].von;
+        element.bis = timeDataJson[key].bis;
+        element.subanlage = timeDataJson[key].subanlage;
         barDataJson.push(element);
         i = i + 1;
       }
