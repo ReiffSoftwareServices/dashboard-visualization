@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class BackendFetchComponent {
 
   getData() {
-    const url = 'http://rohrer.herokuapp.com/api/clients/';
+    const url = 'https://rohrer.herokuapp.com/api/clients/';
     console.log(url);
     // @ts-ignore
     fetch(url, {
