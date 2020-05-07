@@ -26,5 +26,4 @@ export class BackendFetchComponent {
         console.error('Error:', error);
       });
   }
-
 }
