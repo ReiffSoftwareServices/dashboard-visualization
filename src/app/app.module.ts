@@ -22,9 +22,9 @@ import { BackendFetchComponent } from './backend-fetch/backend-fetch.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: '', component: DashboardTableComponent},
-      {path: '', component: DashboardTableComponent},
-    ]),
+    { path: '', component: DashboardTableComponent },
+    { path: '', component: DashboardTableComponent },
+], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
     MatTableModule,
     MatButtonModule,
